@@ -1,0 +1,12 @@
+[Unit]
+Description=Minecraft Server Downloader
+After=network-online.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+Type=oneshot
+ExecStart=/home/ubuntu/scripts/download-server.sh
+
+[Install]
+WantedBy=multi-user.target

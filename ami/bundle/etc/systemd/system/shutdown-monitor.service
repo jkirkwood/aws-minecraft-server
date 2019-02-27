@@ -1,0 +1,9 @@
+[Unit]
+Description=Server Shutdown Monitor
+
+[Service]
+ExecStart=/home/ubuntu/scripts/shutdown-monitor.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

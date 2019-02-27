@@ -1,0 +1,13 @@
+[Unit]
+Description=Minecraft Server Backup
+Before=minecraft-server.service
+After=network-online.target
+
+[Service]
+WorkingDirectory=/home/ubuntu/minecraft
+ExecStop=/home/ubuntu/scripts/create-backup.sh
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

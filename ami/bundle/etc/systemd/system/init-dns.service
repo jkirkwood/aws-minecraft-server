@@ -1,0 +1,10 @@
+[Unit]
+Description=Dynamic DNS Initialization
+After=network-online.target
+
+[Service]
+ExecStart=/home/ubuntu/scripts/init-dns.sh
+type=oneshot
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Minecraft Server
+After=download-server.service
+
+[Service]
+WorkingDirectory=/home/ubuntu/minecraft
+User=ubuntu
+Group=ubuntu
+ExecStart=/home/ubuntu/scripts/start-server.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

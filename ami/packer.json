@@ -1,0 +1,35 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-east-2",
+      "source_ami": "ami-0c55b159cbfafe1f0",
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "ami_name": "minecraft-server-{{timestamp}}",
+      "tags": {
+        "Application": "minecraft-server"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell-local",
+      "script": "./scripts/build_bundle.sh"
+    },
+    {
+      "type": "file",
+      "source": "bundle.tar.gz",
+      "destination": "/tmp/bundle.tar.gz",
+      "generated": true
+    },
+    {
+      "type": "shell",
+      "script": "./scripts/provision.sh"
+    },
+    {
+      "type": "shell-local",
+      "script": "./scripts/cleanup.sh"
+    }
+  ]
+}
