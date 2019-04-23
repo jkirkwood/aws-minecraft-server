@@ -156,6 +156,6 @@ resource "aws_instance" "server" {
     # Server may be shut down, which prevents these properties from being read.
     # This causes Terraform to think they are changing causing the instance
     # to be replaced
-    ignore_changes = ["associate_public_ip_address", "id"]
+    ignore_changes = ["associate_public_ip_address"]
   }
 }
