@@ -13,7 +13,7 @@ if [[ -e $installed_url_path ]]; then
   installed_url=$(cat $installed_url_path)
 fi
 
-latest_url=$(curl -s https://minecraft.net/en-us/download/server/ | grep -m 1 -oP "https://.*?jar")
+latest_url=$(curl -L -s https://minecraft.net/en-us/download/server/ | grep -m 1 -oP "https://.*?jar")
 
 echo "Latest server url: $latest_url"
 echo "Installed server url: $installed_url"
