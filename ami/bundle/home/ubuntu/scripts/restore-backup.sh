@@ -9,7 +9,7 @@ region=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/documen
 bucket=$(aws ssm get-parameter --name "/minecraft-server/s3-bucket-name" --query "Parameter.Value" --output text --region "$region")
 
 # Remove current local world backup and move existing world folder
-rm /home/ubuntu/minecraft/world-backup || true
+rm -R /home/ubuntu/minecraft/world-backup || true
 mv /home/ubuntu/minecraft/world /home/ubuntu/minecraft/world-backup
 
 # Download backup from S3 and apply to minecraft directory
